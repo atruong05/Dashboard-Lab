@@ -2,3 +2,4 @@ $ cat .gitignore
 /server/*
 /maint/*
 /node_modules/*
+/mongodb-win32-i386-2.6.4/*
