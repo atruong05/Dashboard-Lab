@@ -30,4 +30,33 @@ router.get('/super/:id', function(req, res){
 	})
 });
 
+
+
+//Select One Super & Name from One Source
+router.get(('/var/:source/:supers/:name'), function(req, res){
+	var db=req.db;
+	db.collection('var').find({$and:[{"source":req.params.source}, {"super": req.params.supers}, {"name": req.params.name}]}).toArray(function(err, items){
+		res.json(items);
+	})
+});
+
+//Select two super & name from one source.
+//New comment
+router.get('/var/:source/:supers1/:name1/:supers2/:name2', function(req, res){
+	var db=req.db;
+	db.collection('var').find({$or:[
+	{"source":req.params.source, "super":req.params.supers1, "name":req.params.name1},
+	{"source":req.params.source, "super": req.params.supers2, "name":req.params.name2}]}
+	).toArray(function(err, items){
+		res.json(items);
+	})
+});
+
+router.get('/', function(req, res){
+  res.send('hello world');
+});
+
 module.exports = router;
+
+
+
