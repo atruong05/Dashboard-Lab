@@ -3,3 +3,4 @@ $ cat .gitignore
 /maint/*
 /node_modules/*
 /mongodb-win32-i386-2.6.4/*
+*.DS_Store
